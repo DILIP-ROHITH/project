@@ -11,4 +11,4 @@
 > then enter (rosrun teleop_twist_keyboard teleop_twist_keyboard.py )
 > you can move the robot by entering the keys specified (make sure to keep this termianl on top)
 
-![Droid1 robot](droid.png)
+>>>[Droid1 robot](droid.png)
