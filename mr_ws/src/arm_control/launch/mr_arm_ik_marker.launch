@@ -1,0 +1,4 @@
+<launch>
+  <include file="$(dirname)/demo.launch"/>
+  <node name="droid_arm_ik_marker" pkg="arm_control" type="ik_marker.py"/>
+</launch>

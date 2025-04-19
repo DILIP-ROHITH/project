@@ -1,0 +1,41 @@
+
+<launch>
+
+  <param name="use_sim_time" value="true"/>
+
+  <!-- MoveIt options -->
+  <arg name="pipeline" default="ompl" doc="Planning pipeline to use with MoveIt"/>
+
+  <!-- Gazebo options -->
+  <arg name="gazebo_gui" default="true" doc="Start Gazebo GUI"/>
+  <arg name="paused" default="false" doc="Start Gazebo paused"/>
+  
+  <!-- Launch Gazebo and spawn the robot -->
+  <include file="$(dirname)/gazebo.launch" >
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="gazebo_gui" value="$(arg gazebo_gui)"/>
+  </include>
+
+  <node pkg="tf2_ros" type="static_transform_publisher" name="world_to_map" 
+      args="0 0 0 0 0 0 world map" />
+
+  <!-- Launch MoveIt -->
+  <include file="$(dirname)/demo.launch" pass_all_args="true">
+    <!-- robot_description is loaded by gazebo.launch, to enable Gazebo features -->
+    <arg name="load_robot_description" value="false" />
+    <arg name="moveit_controller_manager" value="ros_control" />
+  </include>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen" />
+
+  <!-- Launch SLAM Toolbox with your config -->
+  <node pkg="slam_toolbox" type="async_slam_toolbox_node" name="slam_toolbox" output="screen">
+    <param name="use_sim_time" value="true"/>
+    <param name="odom_frame" value="odom"/>
+    <param name="map_frame" value="map"/>
+    <param name="base_frame" value="base_footprint"/>
+    <rosparam command="load" file="$(find arm_control)/config/mapper_params_online_async.yaml"/>
+  </node>
+
+</launch>
+
+

@@ -1,0 +1,5 @@
+droid
+/workspaces/project/mr_ws/devel/.private/droid/cmake.lock /workspaces/project/mr_ws/devel/./cmake.lock
+/workspaces/project/mr_ws/devel/.private/droid/share/droid/cmake/droidConfig.cmake /workspaces/project/mr_ws/devel/share/droid/cmake/droidConfig.cmake
+/workspaces/project/mr_ws/devel/.private/droid/share/droid/cmake/droidConfig-version.cmake /workspaces/project/mr_ws/devel/share/droid/cmake/droidConfig-version.cmake
+/workspaces/project/mr_ws/devel/.private/droid/lib/pkgconfig/droid.pc /workspaces/project/mr_ws/devel/lib/pkgconfig/droid.pc
