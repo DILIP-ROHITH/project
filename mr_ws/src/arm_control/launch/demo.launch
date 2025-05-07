@@ -30,11 +30,15 @@
     <!-- We do not have a real robot connected, so publish fake joint states via a joint_state_publisher
          MoveIt's fake controller's joint states are considered via the 'source_list' parameter -->
     <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" unless="$(arg use_gui)">
+      <param name="rate" value="50"/>
+      <param name="use_sim_time" value="true"/>
       <rosparam param="source_list">[move_group/fake_controller_joint_states]</rosparam>
     </node>
     <!-- If desired, a GUI version is available allowing to move the simulated robot around manually
          This corresponds to moving around the real robot without the use of MoveIt. -->
     <node name="joint_state_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" if="$(arg use_gui)">
+      <param name="rate" value="50"/>
+      <param name="use_sim_time" value="true"/>
       <rosparam param="source_list">[move_group/fake_controller_joint_states]</rosparam>
     </node>
 
@@ -55,7 +59,7 @@
 
   <!-- Run Rviz and load the default config to see the state of the move_group node -->
   <include file="$(dirname)/moveit_rviz.launch" if="$(arg use_rviz)">
-    <arg name="rviz_config" value="$(dirname)/moveit.rviz"/>
+    <arg name="rviz_config" default="$(find arm_control)/config/new.rviz" />
     <arg name="debug" value="$(arg debug)"/>
   </include>
 

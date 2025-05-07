@@ -13,6 +13,7 @@ RUN apt update && \
     python3-catkin-tools \
     software-properties-common \
     net-tools \
+    git \
     kmod \
     iproute2 \
     ros-noetic-moveit \
@@ -21,7 +22,12 @@ RUN apt update && \
     ros-noetic-velodyne-description \
     ros-noetic-velodyne-gazebo-plugins \
     ros-noetic-joint-trajectory-controller \
-    ros-noetic-slam-toolbox
+    ros-noetic-slam-toolbox \
+    ros-noetic-gmapping \
+    ros-noetic-map-server \
+    ros-noetic-amcl \
+    ros-noetic-move-base \
+    ros-noetic-dwa-local-planner
 
 # installing CAN Requirements
 RUN pip install python-can canard cantools pyserial

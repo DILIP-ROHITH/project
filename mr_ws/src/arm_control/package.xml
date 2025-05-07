@@ -3,7 +3,7 @@
   <name>arm_control</name>
   <version>0.3.0</version>
   <description>
-     An automatically generated package with all the configuration and launch files for using the droid with the MoveIt Motion Planning Framework
+     droid
   </description>
   <author email="rohithkarella@gmail.com">dilip_rohith</author>
   <maintainer email="rohithkarella@gmail.com">dilip_rohith</maintainer>
@@ -29,6 +29,16 @@
   <run_depend>rviz</run_depend>
   <run_depend>tf2_ros</run_depend>
   <run_depend>xacro</run_depend>
+  <run_depend>dwa_local_planner</run_depend>
+  <run_depend>gmapping</run_depend>
+  <run_depend>map_server</run_depend>
+  <run_depend>visualization_msgs</run_depend>
+  <run_depend>tf_conversions</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+  <run_depend>pluginlib</run_depend>
+  <run_depend>move_base</run_depend>
+  <run_depend>move_base_msgs</run_depend>
+  <run_depend>nav_msgs</run_depend>
   <!-- The next 2 packages are required for the gazebo simulation.
        We don't include them by default to prevent installing gazebo and all its dependencies. -->
   <!-- <run_depend>joint_trajectory_controller</run_depend> -->

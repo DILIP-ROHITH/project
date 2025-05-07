@@ -1,0 +1,14 @@
+<launch>
+
+<param name="use_sim_time" value="true"/>
+
+<!-- Provide static map: Run the map_server node -->
+<include file = "$(find arm_control)/launch/provide_map.launch" />
+
+<!-- Localization: Run amcl node -->
+<include file = "$(find arm_control)/launch/amcl_launch.launch" />
+
+<!-- Move the robot: Run move_base node -->
+<include file = "$(find arm_control)/launch/move_base_launch.launch" />
+
+</launch>

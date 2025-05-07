@@ -8,6 +8,7 @@
   <arg name="initial_joint_positions" doc="Initial joint configuration of the robot"
        default=" -J Revolute_4 0 -J Revolute_5 0 -J Revolute_6 0 -J Revolute_7 0 -J Revolute_1 0 -J Revolute_2 0 "/>
   <arg name="world" default="$(find pal_gazebo_worlds)/worlds/pal_kitchen.world" />
+  <!-- <arg name="world" default="$(find pal_gazebo_worlds)/worlds/hospital_door.world" /> -->
 
 
   <arg name="extra_gz_model_path" default=""/>

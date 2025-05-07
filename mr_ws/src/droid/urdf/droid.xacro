@@ -8,8 +8,8 @@
 <!-- BASE_FOOTPRINT LINK -->
 
 <joint name="base_footprint_joint" type="fixed">
-    <parent link="base_link"/>
-    <child link="base_footprint"/>
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
     <origin xyz="0 0 0" rpy="0 0 0"/>
 </joint>
 
@@ -226,6 +226,48 @@
   </collision>
 </link>
 
+<link name="imu_1">
+  <inertial>
+    <origin xyz="0.002099999752706645 0.01716441635718738 -0.04219191502453662" rpy="0 0 0"/>
+    <mass value="0.03310410383754079"/>
+    <inertia ixx="4e-06" iyy="4e-06" izz="6e-06" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 0.1855 -0.122" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find droid)/meshes/imu_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 0.1855 -0.122" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find droid)/meshes/imu_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="realsense_1">
+  <inertial>
+    <origin xyz="0.00019063533530737475 -0.013099464606688316 0.27006440991615027" rpy="0 0 0"/>
+    <mass value="0.07042247801938885"/>
+    <inertia ixx="8e-06" iyy="8.9e-05" izz="8.8e-05" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 0.3115 -0.4975" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find droid)/meshes/realsense_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 0.3115 -0.4975" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find droid)/meshes/realsense_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
 <joint name="Revolute_1" type="continuous">
   <origin xyz="0.195 -0.183731 0.104" rpy="0 0 0"/>
   <parent link="base_link"/>
@@ -288,6 +330,27 @@
   <origin xyz="0.2745 -0.309 0.895" rpy="0 0 0"/>
   <parent link="base_link"/>
   <child link="lidar_1"/>
+</joint>
+
+<joint name="Rigid_10" type="fixed">
+  <origin xyz="0.0 -0.1855 0.122" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="imu_1"/>
+</joint>
+
+<joint name="Rigid_11" type="fixed">
+  <origin xyz="0.0 -0.3115 0.4975" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="realsense_1"/>
+</joint>
+
+<link name="camera_link_optical"></link>
+
+<joint name="camera_optical_joint" type="fixed">
+  <axis xyz="0 0 1" />
+  <parent link="realsense_1"/>
+  <child link="camera_link_optical"/>
+  <origin xyz="0 0 0" rpy="-1.5707963268 0 -1.5707963268"/>
 </joint>
 
 </robot>
