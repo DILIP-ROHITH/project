@@ -15,9 +15,6 @@
     <arg name="paused" value="$(arg paused)"/>
     <arg name="gazebo_gui" value="$(arg gazebo_gui)"/>
   </include>
-
-  <node pkg="tf2_ros" type="static_transform_publisher" name="map_to_odom" 
-    args="0 0 0 0 0 0 map odom" />
     
   <!-- Launch MoveIt -->
   <include file="$(dirname)/demo.launch" pass_all_args="true">

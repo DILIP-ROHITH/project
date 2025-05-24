@@ -29,12 +29,6 @@
     <param name="resampleThreshold" value="0.5"/>
     <param name="particles" value="80"/>
     <param name="use_sim_time" value="true"/>
-  <!--
-    <param name="xmin" value="-50.0"/>
-    <param name="ymin" value="-50.0"/>
-    <param name="xmax" value="50.0"/>
-    <param name="ymax" value="50.0"/>
-   -->
     <param name="xmin" value="-1.0"/>
     <param name="ymin" value="-1.0"/>
     <param name="xmax" value="1.0"/>
